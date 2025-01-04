@@ -1,0 +1,1 @@
+export { IniitalDatabase1736017696968 } from '../migrations/1736017696968-iniitalDatabase';

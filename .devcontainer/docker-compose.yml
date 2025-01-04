@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3307:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: el_dorado_challenge_image
+    container_name: el_dorado_challenge_service
+    restart: always
+    ports: 
+      - 3000:3000
+    environment:
+      ENV: prod
+      PORT_DB: 3307
+    working_dir: /usr/src
+    volumes:
+      - ./:/usr/src
+volumes:
+  db:
+    driver: local

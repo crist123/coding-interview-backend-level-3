@@ -1,0 +1,44 @@
+{
+  "name": "coding-interview-backend-level-3",
+  "version": "1.0.0",
+  "description": "Coding Interview Backend Level 3",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "npm run build-ts && jest --config ./jest.config.js --detectOpenHandles --testTimeout 170000 --forceExit --verbose --colors",
+    "start": "node dist/src/index.js",
+    "start:dev": "npm run build-ts && npx nodemon ./src/index.ts",
+    "build-ts": "rm -rf dist && tsc --sourceMap false",
+    "post:generate:migration": "node ./src/devScripts/postGenerateMigration.js",
+    "generate:migration": "npm run build-ts && typeorm migration:generate -d ./dist/src/db/dyn.config.js ./src/migrations/$npm_config_name && npm run post:generate:migration",
+    "execute:migration": "npm run build-ts && typeorm migration:run -d ./dist/src/db/dyn.config.js",
+    "start:serve": "npm i --production && node src/index.js",
+    "build:prod": "npm run build-ts && cp package.json ./dist/ && cp init.sql ./dist/ && cp -r ./.devcontainer/. ./dist/ && cp ./.env ./dist/"
+  },
+  "author": "El Dorado Dev Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc/core": "^1.7.2",
+    "@swc/jest": "^0.2.36",
+    "@types/chance": "^1.1.6",
+    "@types/jest": "^29.5.12",
+    "@types/lodash": "^4.17.14",
+    "@types/mysql": "^2.15.26",
+    "jest": "^29.7.0",
+    "mocha": "^10.7.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.10",
+    "chance": "^1.1.12",
+    "dotenv": "^16.4.7",
+    "joi": "^17.13.3",
+    "lodash": "^4.17.21",
+    "mysql2": "^3.11.5",
+    "typeorm": "^0.3.20",
+    "typeorm-naming-strategies": "^4.1.0"
+  }
+}
