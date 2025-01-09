@@ -10,7 +10,7 @@ Tu tarea es completar la implementación de toda la funcionalidad de forma tal d
 ## Solución:
 El reto se realizó usando el framework que ya estaba propuesto, **happi**, adicional se usó **MySQL** para la base de datos y se hace uso de la librería **TypeORM** como ORM, se implementó también **Docker** para poder iniciarlo a nivel de un ambiente productivo. 
 
-Este proyecto ha sido desarrollado por Cristian Andres Fajardo https://www.linkedin.com/in/andresf123/
+Este proyecto ha sido desarrollado por **Cristian Andres Fajardo https://www.linkedin.com/in/andresf123/**
 
 ## Instrucciones para su uso: 
 
