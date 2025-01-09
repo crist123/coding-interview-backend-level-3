@@ -7,8 +7,8 @@ import { isTestEnv } from './utils';
 
 const getServer = () => {
     const server = Hapi.server({
-        host: 'localhost',
-        port: 3000,
+        host: process.env.HOST_CONTAINER ?? process.env.HOST ?? 'localhost',
+        port: process.env.PORT ?? 3000
     });
 
     // Pre request

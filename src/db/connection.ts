@@ -16,7 +16,7 @@ export class Connection {
             Connection.instance = new Connection();
             Connection.instance.db = new DataSource({
                 type: 'mysql',
-                host: process.env.HOST_DB,
+                host: process.env.HOST_DB_CONTAINER ?? process.env.HOST_DB,
                 port: Number(process.env.PORT_DB ?? '3306'),
                 username: process.env.USER_DB,
                 password: process.env.PASS_DB,
@@ -26,7 +26,7 @@ export class Connection {
                 synchronize: isTestEnv(),
                 logging: false,
                 namingStrategy: new SnakeNamingStrategy(),
-                poolSize: 3,
+                poolSize: 3
             });
         }
 

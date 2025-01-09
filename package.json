@@ -11,8 +11,9 @@
     "post:generate:migration": "node ./src/devScripts/postGenerateMigration.js",
     "generate:migration": "npm run build-ts && typeorm migration:generate -d ./dist/src/db/dyn.config.js ./src/migrations/$npm_config_name && npm run post:generate:migration",
     "execute:migration": "npm run build-ts && typeorm migration:run -d ./dist/src/db/dyn.config.js",
+    "execute:migration:prod": "typeorm migration:run -d ./src/db/dyn.config.js",
     "start:serve": "npm i --production && node src/index.js",
-    "build:prod": "npm run build-ts && cp package.json ./dist/ && cp init.sql ./dist/ && cp -r ./.devcontainer/. ./dist/ && cp ./.env ./dist/"
+    "build:prod": "npm run build-ts && cp package.json ./dist/ && cp init.sql ./dist/ && cp -r ./.devcontainer/. ./dist/ && cp ./.env ./dist/ && rm -r ./dist/e2e"
   },
   "author": "El Dorado Dev Team",
   "license": "ISC",

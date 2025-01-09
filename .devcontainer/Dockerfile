@@ -11,8 +11,13 @@ RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
 # Set `DEVCONTAINER` environment variable to help with orientation
 ENV DEVCONTAINER=true
 
+# Set `HOST_DB_CONTAINER` environment variable for db connection in container
+ENV HOST_DB_CONTAINER=mysql_db
+ENV HOST_CONTAINER=0.0.0.0
+ENV ENV=prod
+
 WORKDIR /usr/src
 
-CMD [ "docker", "exec", "-i", "some_mysql_container", "mysql", "-uroot", "-p", "root", "<<<", "\"SOURCE ./init.sql\"" ]
+EXPOSE 3000
 
-CMD [ "npm", "run", "start:serve" ]
+CMD [ "npm", "run", "start:serve"]

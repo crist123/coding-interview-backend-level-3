@@ -3,13 +3,16 @@ services:
   db:
     image: mysql
     restart: always
+    container_name: mysql_db
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - '3307:3306'
     volumes:
       - db:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./:/docker-entrypoint-initdb.d
+    networks:
+      - eldorado-network
   app:
     build:
       context: .
@@ -21,10 +24,15 @@ services:
       - 3000:3000
     environment:
       ENV: prod
-      PORT_DB: 3307
+      PORT_DB: 3306
+      HOST_DB: mysql_db
     working_dir: /usr/src
     volumes:
       - ./:/usr/src
+    networks:
+      - eldorado-network
 volumes:
   db:
     driver: local
+networks:
+  eldorado-network:
