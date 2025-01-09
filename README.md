@@ -8,7 +8,9 @@ La entidad tiene 3 campos: `id`, `name` y `price`.
 Tu tarea es completar la implementación de toda la funcionalidad de forma tal de que los tests e2e pasen exitosamente.
 
 ## Solución:
-El reto se realizó usando el framework que ya estaba propuesto, **happi**, adicional se usó **MySQL** para la base de datos y se hace uso de la librería **TypeORM** como ORM, se implementó también **Docker** para poder iniciarlo a nivel de un ambiente productivo 
+El reto se realizó usando el framework que ya estaba propuesto, **happi**, adicional se usó **MySQL** para la base de datos y se hace uso de la librería **TypeORM** como ORM, se implementó también **Docker** para poder iniciarlo a nivel de un ambiente productivo. 
+
+Este proyecto ha sido desarrollado por Cristian Andres Fajardo https://www.linkedin.com/in/andresf123/
 
 ## Instrucciones para su uso: 
 
