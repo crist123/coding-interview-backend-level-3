@@ -7,36 +7,36 @@ La entidad tiene 3 campos: `id`, `name` y `price`.
 
 Tu tarea es completar la implementación de toda la funcionalidad de forma tal de que los tests e2e pasen exitosamente.
 
-### Solución:
+## Solución:
 El reto se realizó usando el framework que ya estaba propuesto, **happi**, adicional se usó **MySQL** para la base de datos y se hace uso de la librería **TypeORM** como ORM, se implementó también **Docker** para poder iniciarlo a nivel de un ambiente productivo 
 
 ### Instrucciones para su uso: 
 
-## Prerrequisitos: 
+#### Prerrequisitos: 
 - Node js
 - MySQL
 - Docker, se usará al compilarlo en modo productivo, por lo que será necesario también tener esto instalado en el sistema
 
-## Antes de iniciar: 
+#### Antes de iniciar: 
 Antes de iniciar es necesario tener en cuenta las siguientes recomendaciones:
 
 - Ejecutar el script de MySQL almacenado en `./init.sql`, este script contiene la creación de las BD para el proyecto y una BD de test
 - El archivo `.test.env` contiene las variables de entorno para ejecutar el ambiente de test (el que se usara para realizar las pruebas unitarias) no se recomienda cambiar los valores de este archivo
 - Es necesario agregar un archivo `.env` con la configuración deseada para ejecutar el proyecto en local. El archivo que se usó como ejemplo será compartido por correo al momento de entregar este proyecto, también puede crear su propio archivo a base del archivo `.test.env`
 
-## Ejecutando en local: 
+#### Ejecutando en local: 
 - Ejecutar el comando `npm run execute:migration` para poder correr las migraciones pendientes del ORM, en este caso la creación de las tablas necesarias para el correcto funcionamiento de la aplicación.
 - Ejecutar el comando `npm run start:dev`, esto iniciará el proyecto, podrá hacer uso de los EPs expuestos, usando la url `http://localhost:3000`, puede realizar el consumo del EP `http://localhost:3000/ping` para saber que el sistema está funcionando correctamente
 
 **Nota:** Es necesario haber ejecutado el script `./init.sql` en el servidor de `MySQL` antes de ejecutar la migración.
   
-## Ejecutando las pruebas: 
+#### Ejecutando las pruebas: 
 - Ejecutar el comando `npm run test` para poder iniciar los test 
 - No se necesita ejecutar la migración porque la app está configurada para que, si está en ambiente de **test** sincronice automáticamente los cambios en las entidades
 
 **Nota:** Es necesario haber ejecutado el script `./init.sql` en el servidor de `MySQL` antes de ejecutar el test
 
-## Ejecutando en modo productivo: 
+#### Ejecutando en modo productivo: 
 Este modo usa **Docker** para poder desplegar la aplicación en un ambiente productivo, es necesario tener `Docker` instalado en el sistema. La compilación de **Docker**, instalará en el sistema 2 imágenes, la primera correspondiente a una instancia de **MySQL** y otra con lo necesario para la aplicación de **Node**. El contenedor de **MySQL** se podrá acceder a través del puerto **3307** desde la máquina anfitrión.
 
 - Ejecutar el comando `npm run build:prod`, esto realizará la compilación del proyecto en modo productivo y copiará lo necesario para su correcto funcionamiento, la información necesaria se encontrará en la carpeta `dist`.
